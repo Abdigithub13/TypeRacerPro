@@ -13,6 +13,7 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
 const DEFAULT_AVATAR =
   "https://ui-avatars.com/api/?name=User&background=6d28d9&color=fff";
@@ -76,10 +77,13 @@ export default function Sidebar({
         </div>
 
         <div className="flex-1 flex flex-col items-center space-y-2 p-6 overflow-y-auto">
-          <img
+          <Image
             src={DEFAULT_AVATAR}
             alt="Profile"
-            className="w-20 h-20 rounded-full border-4 border-purple-400 mb-2"
+            width={80}
+            height={80}
+            className="w-20 h-20 rounded-full border-4 border-purple-400 mb-2 object-cover"
+            priority
           />
           <div className="text-lg font-bold text-purple-700 dark:text-purple-300">
             {user?.name || "Guest"}
